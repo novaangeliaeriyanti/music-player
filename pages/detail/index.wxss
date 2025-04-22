@@ -1,0 +1,70 @@
+.card-list-song {
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600rpx;
+}
+
+.track {
+  display: flex;
+  margin-bottom: 20rpx;
+  min-width: 0;
+}
+
+.track-list {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+
+.track-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.track-title{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:12px
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.back-icon {
+  width: 70rpx;
+  height: 70rpx;
+  flex-shrink: 0;  
+  background-color:rgba(76, 84, 105, 0.1);;
+  border-radius:100px;
+  padding:5px;
+}
+
+.mini-cover {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.playlist-cover {
+ width: 8rem;
+ height: 8rem;
+ border-radius:8rpx;
+}

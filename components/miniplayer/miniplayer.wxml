@@ -1,0 +1,14 @@
+<view wx:if="{{showMiniPlayer}}" class="mini-player" catchtap="goToPlayer">
+  <image class="mini-player-cover" src="{{currentTrack.cover}}" />
+  <view class="mini-info">
+    <text class="mini-title ellipsis">{{currentTrack.title}}</text>
+    <text class="mini-artist ellipsis">{{currentTrack.artist}}</text>
+  </view>
+  <view class="mini-toggle" catchtap="togglePlayPause">
+    <image wx:if="{{isPlaying}}" class="icon" src="/assets/images/rounded-pause.svg" />
+    <image wx:else class="icon" src="/assets/images/rounded-play.svg" />
+  </view>
+  <view class="mini-progress-container">
+    <view class="mini-progress" style="width: {{progressPercent}}%;"></view>
+  </view>
+</view>

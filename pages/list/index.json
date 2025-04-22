@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "Music Player",
+    "navigationBarTextStyle":"#703094",
+    "usingComponents": {
+        "miniplayer": "/components/miniplayer/miniplayer"
+    }
+}

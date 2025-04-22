@@ -1,0 +1,62 @@
+.track {
+  display: flex;
+  flex-direction:row;
+  padding: 10px;
+  gap:20px;
+  align-items:center;
+}
+
+.track-list {
+  display: flex;
+  align-items:center;
+  width: 100%;
+}
+
+.track-list > view {
+  flex: 1;
+}
+
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.card-list-song {
+  box-shadow: 0 0 16rpx rgba(0, 0, 0, 0.08);
+  border-radius: 12rpx;
+  background-color: transparent;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #703094;
+  width: 100%;
+  color: #fff;
+  height: 2rem;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:active {
+  background-color: #5c267d;
+}
+
+.mini-cover {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+

@@ -1,0 +1,14 @@
+{
+    "pages": [
+      "pages/list/index",
+      "pages/player/index",
+      "pages/detail/index"
+    ],
+    "window": {
+      "navigationBarBackgroundColor": "#ffede2",
+      "backgroundColor": "#ffffff",
+      "backgroundTextStyle": "light"
+    },
+    "requiredBackgroundModes": ["audio"]
+  }
+  

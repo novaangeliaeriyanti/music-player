@@ -1,0 +1,29 @@
+page {
+  background: rgba(255, 237, 226, 1);
+  background-image:
+    url('https://static.langitmusik.co.id/assets/images/background/batik.svg'),
+    url('https://static.langitmusik.co.id/assets/images/background/batik2.svg'),
+    linear-gradient(19deg, rgba(200, 212, 254, 1) 0%, rgba(245, 247, 250, 1) 37%, rgba(255, 237, 226, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: top right, bottom left;
+  background-size: 100% auto, 100% auto, cover;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, 
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-attachment: fixed;
+}
+
+.container {
+    height: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    color:#212a3e;
+    padding-bottom:3rem;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

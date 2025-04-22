@@ -1,0 +1,43 @@
+<view class="container">
+  <view bindtap="back">
+    <image class="back-icon" src="/assets/images/arrow-left.svg" />
+  </view>
+  <view class="player-container">
+    <view class="player-wrapper">
+      <image
+        class="cover {{isPlaying ? 'rotate' : ''}}"
+        src="{{coverPlayer}}"
+        mode="aspectFill"
+      />
+      <image
+        class="player-arm {{isPlaying ? 'arm-small' : 'arm-big'}}"
+        src="{{playerArm}}"
+        mode="aspectFit"
+      />
+    </view>
+    <view style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <view class="title">{{title}}</view>
+      <view class="artist ellipsis" >{{artist}}</view>
+    </view>
+    <view class="progress">
+      <text>{{currentTimeFormatted}}</text>
+      <view class="progress-bar" bindtap="onProgressBarTap">
+      <view class="progress-fill" style="width: {{progressPercent || 0}}%;"></view>
+      <view class="progress-thumb" style="left: {{progressPercent || 0}}%;"></view>
+    </view>
+      <text>{{durationFormatted}}</text>
+    </view>
+    <view class="controls">
+      <view class="button" bindtap="prevTrack">
+         <image class="icon" src="/assets/images/skip-back.svg" />
+      </view>
+      <view class="button-large" catchtap="togglePlayPause">
+        <image wx:if="{{isPlaying}}" class="icon" src="/assets/images/pause.svg" />
+        <image wx:else class="icon" src="/assets/images/play.svg" />
+      </view>
+      <view class="button" bindtap="nextTrack">
+        <image class="icon" src="/assets/images/skip-forward.svg" />
+      </view>
+    </view>
+  </view>
+</view>

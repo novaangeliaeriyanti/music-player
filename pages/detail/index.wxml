@@ -1,0 +1,37 @@
+<view class="container">
+  <view style="display:flex;align-items:center;">
+    <image bindtap="back" class="back-icon" src="/assets/images/arrow-left.svg" />
+  </view>
+  <view style="display:flex;flex-direction:column;gap:20rpx;padding:20rpx;justify-content:center;align-items: center">
+    <image src="{{coverPlaylist}}" class="playlist-cover"></image>
+    <view style="display:flex;flex-direction:column;gap:5rpx;align-self: stretch; ">
+        <text style="color:#4c5469">PLAYLIST</text>
+        <text style="font-weight:bold">Cerah Hari</text>
+        <view style="display:flex;flex-direction:row;gap:10rpx;">
+            <text style="font-size:12px;">Oleh</text>
+            <text style="font-size:12px;color:#703094">Langit Music</text>
+        </view>
+    </view>
+    <view class="card-list-song">
+      <block wx:for="{{tracks}}" wx:key="index">
+        <view class="track" bindtap="onSelect" data-index="{{index}}">
+            <view class="track-list">
+                <image class="mini-cover" src="{{item.cover}}"/>
+                <view class="track-text">
+                    <text class="ellipsis track-title">{{item.title}}</text>
+                    <text class="ellipsis track-artist">{{item.artist}}</text>
+                </view>
+            </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <miniplayer
+    showMiniPlayer="{{showMiniPlayer}}"
+    currentTrack="{{currentTrack}}"
+    isPlaying="{{isPlaying}}"
+    progressPercent="{{progressPercent}}"
+    bind:goToPlayer="goToPlayer"
+    bind:togglePlayPause="togglePlayPause"
+  />
+</view>

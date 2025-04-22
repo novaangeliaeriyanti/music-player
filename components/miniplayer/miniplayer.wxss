@@ -1,0 +1,79 @@
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  margin:20rpx;
+  border-radius:12rpx;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.mini-cover {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.mini-player-cover {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.mini-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 20rpx;
+  right: 20rpx;
+  height: 6rpx;
+  background-color: #eee;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.mini-progress {
+  height: 100%;
+  background-color: #703094;
+  transition: width 0.3s ease;
+}
+
+.mini-title {
+  font-weight: bold;
+}
+
+.mini-artist {
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+.mini-toggle {
+  margin-left: auto;
+  font-size: 24px;
+  padding: 0 10px;
+  color: #6a0dad;
+}
+
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

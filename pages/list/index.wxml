@@ -1,0 +1,29 @@
+<view class="container">
+ <view style="display:flex;flex-direction:column;gap:10rpx">
+    <text style="font-size:26px;font-weight:bold;color:#4c5469;">Tangga Lagu</text>
+    <text class="ellipsis" style="color:#4c5469">Cerah Hari</text>
+    <view class="card-list-song">
+      <block wx:for="{{tracks}}" wx:key="index">
+          <view class="track" bindtap="onSelect" data-index="{{index}}">
+            <text>{{index + 1}}</text>
+            <view class="track-list">
+              <image class="mini-cover" src="{{item.cover}}"/>
+              <view style="display:flex;flex-direction:column;flex:1;">
+                  <text class="ellipsis">{{item.title}}</text>
+                  <text class="ellipsis" style="font-size:12px">{{item.artist}}</text>
+              </view>
+            </view>
+          </view>
+      </block>
+      <view class="button" bindtap="onViewAll">Lihat Semua</view>
+    </view>
+ </view>
+  <miniplayer
+    showMiniPlayer="{{showMiniPlayer}}"
+    currentTrack="{{currentTrack}}"
+    progressPercent="{{progressPercent}}"
+    isPlaying="{{isPlaying}}"
+    bind:goToPlayer="goToPlayer"
+    bind:togglePlayPause="togglePlayPause"
+  />
+</view>
