@@ -13,7 +13,8 @@ page {
 }
 
 .container {
-    height: 100%;
+    height: 100vh;
+    margin-top:70rpx;
     padding: 0 2rem;
     box-sizing: border-box;
     color:#212a3e;

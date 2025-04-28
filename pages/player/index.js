@@ -1,5 +1,5 @@
 const app = getApp();
-const backgroundAudioManager = wx.getBackgroundAudioManager(); // Init the background audio manager
+const backgroundAudioManager = wx.getBackgroundAudioManager();
 
 function formatTime(seconds) {
   const min = Math.floor(seconds / 60);
@@ -75,25 +75,22 @@ Page({
   },
 
   onHide() {
-    // Save the current track and time
     app.globalData.currentTrack = this.data.currentTrack;
     app.globalData.currentTime = this.data.currentTime;
 
     wx.setStorageSync('currentTrack', this.data.currentTrack);
     wx.setStorageSync('currentTime', this.data.currentTime);
 
-    backgroundAudioManager.pause(); // Pause audio when leaving
+    backgroundAudioManager.pause();
   },
 
   onUnload() {
-    // Save the current track and time before unloading
     app.globalData.currentTrack = this.data.currentTrack;
     app.globalData.currentTime = this.data.currentTime;
 
     wx.setStorageSync('currentTrack', this.data.currentTrack);
     wx.setStorageSync('currentTime', this.data.currentTime);
     
-    // Store the current time before unloading
     app.globalData.currentTime = backgroundAudioManager.currentTime;
     wx.setStorageSync('currentTime', app.globalData.currentTime);
   },
@@ -131,7 +128,6 @@ Page({
   playTrack(index, startTime = 0) {
     const track = this.data.playlist[index];
   
-    // Kalau track masih sama dan audio masih diputar, cukup update UI
     if (
       this.data.currentTrack.id === track.id &&
       !backgroundAudioManager.paused
@@ -143,21 +139,15 @@ Page({
         cover: track.cover,
         url: track.url,
       });
-      console.log('startTime: ',startTime)
-      // if (startTime > 0) {
-      //   backgroundAudioManager.seek(startTime);
-      // }
-  
       return;
     }
-  
-    // Kalau track beda, atau audio sudah dijeda, baru load ulang
+
     backgroundAudioManager.stop();
     backgroundAudioManager.title = track.title;
     backgroundAudioManager.singer = track.artist;
     backgroundAudioManager.coverImgUrl = track.cover;
     backgroundAudioManager.src = track.url;
-    console.log('startTime: ',startTime)
+
     if (startTime > 0) {
       setTimeout(() => {
         backgroundAudioManager.seek(startTime);
@@ -191,28 +181,52 @@ Page({
   },
 
   nextTrack() {
-    let nextIndex = (this.data.currentIndex + 1) % this.data.playlist.length;
-    app.globalData.currentTime = 0;
-    this.playTrack(nextIndex);
+    const nextIndex = (this.data.playlist.findIndex(track => track.id === this.data.currentTrack.id) + 1) % this.data.playlist.length;
+    const nextTrack = this.data.playlist[nextIndex];
+    
     this.setData({
-      currentIndex: nextIndex,
-      currentTime: 0,
-      progressPercent: 0,
+      currentTrack: nextTrack,
       isPlaying: true,
+      currentTime: 0,
+      title: nextTrack.title,
+      artist: nextTrack.artist,
+      cover: nextTrack.cover,
+      url: nextTrack.url,
     });
+
+    app.globalData.currentTrack = nextTrack;
+    app.globalData.isPlaying = true;
+    backgroundAudioManager.src = nextTrack.url;
+    backgroundAudioManager.title = nextTrack.title;
+    backgroundAudioManager.coverImgUrl = nextTrack.cover;
+    backgroundAudioManager.play();
+
+    app.globalData.currentTime = 0;
   },
 
   prevTrack() {
-    let prevIndex = this.data.currentIndex - 1;
-    if (prevIndex < 0) prevIndex = this.data.playlist.length - 1;
-    app.globalData.currentTime = 0;
-    this.playTrack(prevIndex);
+    const prevIndex = (this.data.playlist.findIndex(track => track.id === this.data.currentTrack.id) - 1 + this.data.playlist.length) % this.data.playlist.length;
+    const prevTrack = this.data.playlist[prevIndex];
+
     this.setData({
-      currentIndex: prevIndex,
-      currentTime: 0,
-      progressPercent: 0,
+      currentTrack: prevTrack,
       isPlaying: true,
+      currentTime: 0,
+      title: prevTrack.title,
+      artist: prevTrack.artist,
+      cover: prevTrack.cover,
+      url: prevTrack.url,
     });
+
+    app.globalData.currentTrack = prevTrack;
+    app.globalData.isPlaying = true;
+
+    backgroundAudioManager.src = prevTrack.url;
+    backgroundAudioManager.title = prevTrack.title;
+    backgroundAudioManager.coverImgUrl = prevTrack.cover;
+    backgroundAudioManager.play();
+
+    app.globalData.currentTime = 0;
   },
 
   stop() {
